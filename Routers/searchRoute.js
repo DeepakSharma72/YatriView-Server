@@ -37,7 +37,6 @@ async function isTextExist(text, obj, author) {
             // console.log(author, text);
             return true;
         }
-        // console.log('yha aya reha matlab false');
         return false;
     }
     catch (err) {
@@ -62,7 +61,7 @@ searchRoute.get('/search/:text', async (req, res) => {
         return res.json({ success: true, data: resultArr });
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.json({ success: false });
     }
 });
@@ -134,7 +133,7 @@ searchRoute.get('/recommend/:postid', async (req, res) => {
         return res.json({ success: true, data: TransformedArr.slice(0, 8) });
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.json({ success: false });
     }
 });

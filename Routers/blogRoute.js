@@ -60,7 +60,7 @@ blogRoute.get('/getblogs/:offset', async (req, res) => {
     try {
         const slotSize = 4;
         const offset = req.params['offset'];
-        console.log(offset);
+        // console.log(offset);
         const blogs = await Blogs.find().skip(slotSize * offset).limit(slotSize).sort({ createdAt: -1 });
         let blogArr = [];
         for (let obj of blogs) {
@@ -70,7 +70,7 @@ blogRoute.get('/getblogs/:offset', async (req, res) => {
         return res.json({ success: true, blogArr, EOF: (blogArr.length < slotSize ? true : false) });
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.json({ success: false, serverMsg: 'Unknown error' });
     }
 });
@@ -146,7 +146,6 @@ blogRoute.patch('/updateviews', async (req, res) => {
 })
 
 blogRoute.delete('/deletepost', appendTokenToReq, async (req, res) => {
-    // console.log('aya ki nhi');
     try {
         const { _id } = req.body;
         // console.log(_id);
@@ -180,7 +179,7 @@ blogRoute.delete('/deletepost', appendTokenToReq, async (req, res) => {
         return res.json({ success: true, serverMsg: 'Blog is deleted successfully' });
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.json({ success: false, serverMsg: 'Unable to delete the Blog' });
     }
 });
@@ -223,7 +222,7 @@ blogRoute.get('/updatepost/:postid', appendTokenToReq, async (req, res) => {
 blogRoute.patch('/updateblog', appendTokenToReq, async (req, res) => {
     try {
         const updatedRes = await Blogs.updateOne({ _id: req.body._id }, { $set: { Title: req.body.Title, Categories: req.body.Categories, BlogImage: req.body.BlogImage, Content: req.body.Content } }, { validateBeforeSave: true });
-        console.log(updatedRes);
+        // console.log(updatedRes);
         return res.json({ success: true, serverMsg: 'Update Successfully' });
     }
     catch (err) {
@@ -278,7 +277,7 @@ blogRoute.get('/getauthorsblogs/:offset', appendTokenToReq, async (req, res) => 
         }
         const slotSize = 4;
         const offset = req.params['offset'];
-        console.log(offset);
+        // console.log(offset);
         const blogs = await Blogs.find({ AuthorId: activeuser }).skip(slotSize * offset).limit(slotSize).sort({ createdAt: -1 });
         let blogArr = [];
         for (let obj of blogs) {
@@ -288,7 +287,7 @@ blogRoute.get('/getauthorsblogs/:offset', appendTokenToReq, async (req, res) => 
         return res.json({ success: true, blogArr, EOF: (blogArr.length < slotSize ? true : false) });
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.json({ success: false, serverMsg: 'Unknown error' });
     }
 });

@@ -64,7 +64,7 @@ async function getAuthorIdbyBlogId(blogId) {
 
 async function UpdateRatingofBlog(postId, authorId) {
     try {
-        console.log(postId, authorId);
+        // console.log(postId, authorId);
         const obj = await BlogRate.find({ blogId: postId, authorId });
         let averageRating = obj.reduce((acc, val) => {
             return (acc += val.rating);
@@ -72,7 +72,7 @@ async function UpdateRatingofBlog(postId, authorId) {
         averageRating = averageRating / obj.length;
         console.log(averageRating);
         const updateResult = await Blogs.updateOne({_id: postId, AuthorId: authorId}, { $set: {Rating: averageRating}});
-        console.log(updateResult);
+        // console.log(updateResult);
     }
     catch (err) {
         console.log('while updating rating: ', err);
