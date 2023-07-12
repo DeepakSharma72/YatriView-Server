@@ -18,6 +18,7 @@ YatriView is a website where people can share their travel experiences by writin
 
 - #### Webiste link : [YatriView](https://yatriview.netlify.app/)
 - #### Demo Video: [Video Demonstration](https://www.youtube.com/watch?v=1qbCtU1GQ78)
+  [![Watch youtube video](https://i9.ytimg.com/vi_webp/1qbCtU1GQ78/mqdefault.webp?v=64ab611d&sqp=CMDBu6UG&rs=AOn4CLCOgcffkAua-tZKd5qhPQPkKzuXTA)](https://www.youtube.com/watch?v=1qbCtU1GQ78)
 - #### Frontend Code Repo: [YatriView Client](https://github.com/DeepakSharma72/YatriView-Client)
 - #### Frontend Code Repo: [YatriView Server](https://github.com/DeepakSharma72/YatriView-Server)
 
